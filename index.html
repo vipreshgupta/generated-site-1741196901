@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Futuristic AI-Driven Career Roadmap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #ffffff;
+      overflow-x: hidden; /* Prevent horizontal scrollbar */
+    }
+
+    /* Color Scheme */
+    :root {
+      --primary-color: #007BFF;
+      --secondary-color: #6C757D;
+      --accent-color: #00FFFF;
+      --background-color: #121212;
+      --text-color: #ffffff;
+      --success-color: #28A745;
+      --warning-color: #FFC107;
+      --error-color: #DC3545;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    nav .menu-items a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav .menu-items a:hover {
+      color: var(--accent-color);
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--text-color);
+      margin: 5px;
+      transition: all 0.3s ease;
+    }
+
+    /* Hero Section */
+    #hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    #hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(50%);
+    }
+
+    #hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    #hero button {
+      padding: 1rem 2rem;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    #hero button:hover {
+      background-color: var(--accent-color);
+      transform: scale(1.05);
+    }
+
+    /* Dashboard Section */
+    #dashboard {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    #dashboard h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--accent-color);
+    }
+
+    .progress-tracker {
+      width: 80%;
+      margin: 1rem auto;
+      background-color: #333;
+      border-radius: 10px;
+      height: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background-color: var(--primary-color);
+      width: 0;
+      transition: width 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-color);
+      font-weight: bold;
+    }
+
+    /* Features Section */
+    #features {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .feature-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 2rem;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    .feature-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+    }
+
+    .feature-card p {
+      font-size: 1rem;
+      color: var(--text-color);
+    }
+
+    /* Gamification Section */
+    #gamification {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    #gamification h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--accent-color);
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .badge {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      color: var(--text-color);
+      transition: background-color 0.3s ease;
+    }
+
+    .badge.earned {
+      background-color: var(--accent-color);
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem 2rem;
+      text-align: center;
+      color: var(--text-color);
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav .menu-items {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 1rem 0;
+      }
+
+      nav .menu-items.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      #hero h1 {
+        font-size: 2rem;
+      }
+
+      #dashboard, #features, #gamification {
+        padding: 2rem 1rem;
+      }
+
+      .feature-card {
+        width: 100%;
+      }
+    }
+        /* Interactive Roadmap Visualization */
+    .roadmap-visualization {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .roadmap-step {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      width: 80%;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .roadmap-step:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .roadmap-step.active {
+      background-color: var(--primary-color);
+      color: var(--text-color);
+    }
+
+    /* Modal for Step Details */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1001;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #333;
+      border-radius: 10px;
+      padding: 2rem;
+      width: 80%;
+      max-width: 600px;
+      text-align: center;
+      position: relative;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-color);
+    }
+    /* Assessment Section */
+    #assessment {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    #assessment h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--accent-color);
+    }
+
+    .assessment-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .assessment-question {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1rem;
+      width: 100%;
+      text-align: left;
+    }
+
+    .assessment-question p {
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+    }
+
+    .assessment-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .assessment-option {
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .assessment-option:hover {
+      background-color: var(--accent-color);
+    }
+
+    .assessment-submit {
+      padding: 1rem 2rem;
+      background-color: var(--primary-color);
+      color: var(--text-color);
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .assessment-submit:hover {
+      background-color: var(--accent-color);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">CareerAI</div>
+    <div class="menu-items">
+      <a href="#hero">Home</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#features">Features</a>
+      <a href="#gamification">Gamification</a>
+      <a href="#assessment">Assessment</a>
+    </div>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <img src="https://source.unsplash.com/featured/?technology" alt="Futuristic Technology">
+    <h1>Discover Your Perfect Career Path</h1>
+    <button onclick="startAssessment()">Get Started</button>
+  </section>
+
+  <!-- Assessment Section -->
+    <section id="assessment" style="display: none;">
+        <h2>Career Assessment</h2>
+        <form class="assessment-form" id="assessmentForm">
+            <!-- Question 1 -->
+            <div class="assessment-question">
+                <p>What are your primary interests?</p>
+                <div class="assessment-options">
+                    <button type="button" class="assessment-option" data-value="technology">Technology</button>
+                    <button type="button" class="assessment-option" data-value="art">Art</button>
+                    <button type="button" class="assessment-option" data-value="science">Science</button>
+                    <button type="button" class="assessment-option" data-value="business">Business</button>
+                </div>
+            </div>
+            <!-- Question 2 -->
+            <div class="assessment-question">
+                <p>What skills do you excel at?</p>
+                <div class="assessment-options">
+                    <button type="button" class="assessment-option" data-value="programming">Programming</button>
+                    <button type="button" class="assessment-option" data-value="design">Design</button>
+                    <button type="button" class="assessment-option" data-value="writing">Writing</button>
+                    <button type="button" class="assessment-option" data-value="management">Management</button>
+                </div>
+            </div>
+            <!-- Add more questions as needed -->
+            <button type="submit" class="assessment-submit">Submit Assessment</button>
+        </form>
+    </section>
+
+  <!-- Personalized Roadmap Dashboard -->
+    <section id="dashboard">
+        <h2>Your Career Roadmap</h2>
+        <div class="progress-tracker">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div class="roadmap-visualization" id="roadmapVisualization">
+            <!-- Roadmap steps will be added here dynamically -->
+        </div>
+    </section>
+
+    <!-- Modal for Step Details -->
+    <div class="modal" id="stepModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+  <!-- Features Section -->
+  <section id="features">
+    <div class="feature-card">
+      <img src="https://source.unsplash.com/featured/?ai" alt="AI Personalization">
+      <h3>AI-Powered Personalization</h3>
+      <p>Tailored recommendations based on your unique profile.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://source.unsplash.com/featured/?progress" alt="Progress Tracking">
+      <h3>Dynamic Progress Tracking</h3>
+      <p>Real-time updates on your career journey.</p>
+    </div>
+    <div class="feature-card">
+      <img src="https://source.unsplash.com/featured/?game" alt="Gamified Learning">
+      <h3>Gamified Learning</h3>
+      <p>Engaging challenges and rewards to keep you motivated.</p>
+    </div>
+  </section>
+
+  <!-- Gamification Section -->
+  <section id="gamification">
+    <h2>Achieve Your Goals</h2>
+    <div class="badges">
+      <div class="badge" id="badge1">🏆</div>
+      <div class="badge" id="badge2">🌟</div>
+      <div class="badge" id="badge3">🏅</div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Career Roadmap. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const menuItems = document.querySelector('.menu-items');
+
+    hamburger.addEventListener('click', () => {
+      menuItems.classList.toggle('active');
+    });
+
+    // Start Assessment Function
+    function startAssessment() {
+      document.getElementById('hero').style.display = 'none';
+      document.getElementById('assessment').style.display = 'block';
+    }
+
+    // Assessment Form Submission
+    document.getElementById('assessmentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // Collect user responses
+      const interests = Array.from(document.querySelectorAll('.assessment-question:nth-child(1) .assessment-option:hover')).map(option => option.dataset.value);
+      const skills = Array.from(document.querySelectorAll('.assessment-question:nth-child(2) .assessment-option:hover')).map(option => option.dataset.value);
+
+      // Process responses and generate roadmap
+      generateRoadmap(interests, skills);
+
+      // Show dashboard
+      document.getElementById('assessment').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+    });
+
+    // Roadmap Data (Example)
+    const roadmapData = {
+      technology: {
+        programming: [
+          { title: "Learn Python", description: "Start with the basics of Python programming.", progress: 0 },
+          { title: "Build a Web App", description: "Create a simple web application using Flask or Django.", progress: 0 },
+          { title: "Master Data Structures", description: "Learn about data structures and algorithms.", progress: 0 },
+        ],
+        // Add more paths as needed
+      },
+      // Add more interests and skills as needed
+    };
+
+    // Generate Roadmap Function
+    function generateRoadmap(interests, skills) {
+      const roadmapVisualization = document.getElementById('roadmapVisualization');
+      roadmapVisualization.innerHTML = ''; // Clear previous roadmap
+
+      let totalProgress = 0;
+      let completedSteps = 0;
+
+      // Assuming the first interest and skill are the primary ones
+      const primaryInterest = interests[0];
+      const primarySkill = skills[0];
+
+      if (roadmapData[primaryInterest] && roadmapData[primaryInterest][primarySkill]) {
+        const steps = roadmapData[primaryInterest][primarySkill];
+
+        steps.forEach((step, index) => {
+          const roadmapStep = document.createElement('div');
+          roadmapStep.classList.add('roadmap-step');
+          roadmapStep.textContent = step.title;
+          roadmapStep.addEventListener('click', () => showStepDetails(step));
+          roadmapVisualization.appendChild(roadmapStep);
+
+          totalProgress += step.progress;
+          if (step.progress === 100) {
+            completedSteps++;
+          }
+        });
+
+        // Update progress bar
+        const progressBar = document.getElementById('progressBar');
+        const overallProgress = steps.length > 0 ? (totalProgress / steps.length) : 0;
+        progressBar.style.width = `${overallProgress}%`;
+        progressBar.textContent = `${overallProgress.toFixed(0)}%`;
+
+        // Award badges based on progress (Example)
+        if (completedSteps >= 1) {
+          document.getElementById('badge1').classList.add('earned');
+        }
+        if (completedSteps >= 3) {
+          document.getElementById('badge2').classList.add('earned');
+        }
+        if (completedSteps >= 5) {
+          document.getElementById('badge3').classList.add('earned');
+        }
+      } else {
+        roadmapVisualization.innerHTML = '<p>No roadmap found for your selections. Please try different options.</p>';
+      }
+    }
+
+    // Show Step Details Function
+    function showStepDetails(step) {
+      const modal = document.getElementById('stepModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalDescription = document.getElementById('modalDescription');
+
+      modalTitle.textContent = step.title;
+      modalDescription.textContent = step.description;
+      modal.style.display = 'flex';
+    }
+
+    // Close Modal Function
+    function closeModal() {
+      const modal = document.getElementById('stepModal');
+      modal.style.display = 'none';
+    }
+  </script>
+</body>
+</html>
